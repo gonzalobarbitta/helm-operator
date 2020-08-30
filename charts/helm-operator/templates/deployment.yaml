@@ -18,7 +18,7 @@ spec:
     spec:
       containers:
       - name: cloud-training
-        image: gonzalobarbitta/cloud-training:1.0.2
-        imagePullPolicy: IfNotPresent
+        image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+        imagePullPolicy: {{ .Values.image.pullPolicy }}
         ports:
         - containerPort: 8080

@@ -5,8 +5,9 @@
 replicaCount: 1
 
 image:
-  repository: nginx
+  repository: gonzalobarbitta/cloud-training
   pullPolicy: IfNotPresent
+  tag: 1.0.0
 
 imagePullSecrets: []
 nameOverride: ""
