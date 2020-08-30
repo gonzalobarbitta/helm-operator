@@ -9,3 +9,7 @@ spec:
     git: https://github.com/gonzalobarbitta/helm-operator
     ref: master
     path: charts/helm-operator
+  values:
+    image:
+      repository: gonzalobarbitta/cloud-training
+      tag: '1.0.0'
