@@ -6,6 +6,6 @@ metadata:
   namespace: default
 spec:
   chart:
-    repository: https://github.com/gonzalobarbitta/helm-operator
+    git: https://github.com/gonzalobarbitta/helm-operator
     ref: master
     path: charts/helm-operator

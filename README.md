@@ -60,3 +60,26 @@ Copy this key and create a deploy key with write access on your GitHub repositor
 ```
 fluxctl sync --k8s-fwd-ns flux
 ```
+
+# Promoting releases between environments
+
+Config repository would have following structure:
+
+```
+├── charts
+│   └── helm-operator
+│       ├── Chart.yaml
+│       ├── README.md
+│       ├── templates
+│       └── values.yaml
+├── namespaces
+│   ├── dev.yaml
+│   └── sbx.yaml
+└── releases
+    ├── dev
+    │   └── helm-operator.yaml
+    └── sbx
+        └── helm-operator.yaml
+```
+
+Organizing our code this way would allow us to have a different configuration per environments. This is specially useful if  for instance, our sbx and dev accounts sync to different Git repositories, if there is some sort of automated load testing in dev account, or in case we do not want to promote versions to production that include breaking changes without manual intervention first.
