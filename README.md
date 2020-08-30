@@ -39,12 +39,12 @@ This repository will also contain our HelmRelease resource:
 apiVersion: helm.fluxcd.io/v1
 kind: HelmRelease
 metadata:
-  name: helm-sample
+  name: helm-operator
 spec:
   chart:
     repository: https://github.com/gonzalobarbitta/helm-operator
     ref: master
-    path: charts/helm-sample
+    path: charts/helm-operator
 ```
 
 ### Give write access
