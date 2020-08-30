@@ -45,6 +45,9 @@ spec:
     repository: https://github.com/gonzalobarbitta/helm-operator
     ref: master
     path: charts/helm-operator
+  values:
+    image:
+      repository: gonzalobarbitta/cloud-training
 ```
 
 ### Give write access
