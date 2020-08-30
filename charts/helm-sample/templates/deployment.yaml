@@ -1,0 +1,25 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cloud-training
+  namespace: cloud-training
+  labels:
+    app: cloud-training
+  annotations:
+    fluxcd.io/automated: "true"
+spec:
+  selector:
+    matchLabels:
+      app: cloud-training
+  template:
+    metadata:
+      labels:
+        app: cloud-training
+    spec:
+      containers:
+      - name: cloud-training
+        image: gonzalobarbitta/cloud-training:1.0.2
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 8080

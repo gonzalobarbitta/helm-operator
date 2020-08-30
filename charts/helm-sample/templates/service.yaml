@@ -1,0 +1,13 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: cloud-training
+  namespace: cloud-training
+spec:
+  type: LoadBalancer
+  selector:
+     app: cloud-training
+  ports:
+    - port: 8080
+      targetPort: 80
