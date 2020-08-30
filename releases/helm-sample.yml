@@ -3,6 +3,7 @@ apiVersion: helm.fluxcd.io/v1
 kind: HelmRelease
 metadata:
   name: helm-sample
+  namespace: default
 spec:
   chart:
     repository: https://github.com/gonzalobarbitta/helm-operator
