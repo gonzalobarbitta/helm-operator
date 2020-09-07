@@ -8,7 +8,6 @@ kubectl create ns flux
 
 ### Install flux
 
-
 ```
 export GHUSER="gonzalobarbitta"
 helm upgrade -i flux fluxcd/flux --wait --namespace flux --set git.url=git@github.com:${GHUSER}/helm-operator
@@ -45,6 +44,8 @@ apiVersion: helm.fluxcd.io/v1
 kind: HelmRelease
 metadata:
   name: helm-operator
+  annotations:
+    fluxcd.io/automated: "true"
 spec:
   chart:
     git: https://github.com/gonzalobarbitta/helm-operator
@@ -53,6 +54,7 @@ spec:
   values:
     image:
       repository: gonzalobarbitta/cloud-training
+      tag: '1.0.0'
 ```
 
 ### Sync cluster with Git repository
@@ -72,9 +74,6 @@ Config repository would have following structure:
 │       ├── README.md
 │       ├── templates
 │       └── values.yaml
-├── namespaces
-│   ├── dev.yaml
-│   └── sbx.yaml
 └── releases
     ├── dev
     │   └── helm-operator.yaml
@@ -82,4 +81,4 @@ Config repository would have following structure:
         └── helm-operator.yaml
 ```
 
-Organizing our code this way would allow us to have a different configuration per environments. This is specially useful if  for instance, our sbx and dev accounts sync to different Git repositories, if there is some sort of automated load testing in dev account, or in case we do not want to promote versions to production that include breaking changes without manual intervention first.
+Organizing our code this way would allow us to have a different configuration per environments. This is specially useful if  for instance, our sbx and dev accounts sync to different Git repositories, if there is some sort of automated load testing in dev account, or if we do not want to promote versions to production that include breaking changes without manual intervention first.

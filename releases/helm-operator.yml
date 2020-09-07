@@ -3,7 +3,6 @@ apiVersion: helm.fluxcd.io/v1
 kind: HelmRelease
 metadata:
   name: helm-operator
-  namespace: default
   annotations:
     fluxcd.io/automated: "true"
 spec:
