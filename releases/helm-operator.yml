@@ -13,4 +13,3 @@ spec:
   values:
     image:
       repository: gonzalobarbitta/cloud-training
-      tag: '1.0.3'
